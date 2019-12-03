@@ -1,0 +1,15 @@
+steps:
+- task: 4tecture.BuildVersioning.BuildVersioning.BuildVersioning@0
+  displayName: 'Build Versioning using GitVersion'
+  inputs:
+    versionSource: gitversion
+    paramAssemblyVersion: 7
+    paramAssemblyFileVersion: 7
+    paramAssemblyInformationalVersion: 6
+    doConvertAssemblyInfoToLowerCase: true
+    buildNumberAction: replace
+    doReplaceDotNetCore: true
+    doInstallGitVersion: true
+    GitVersionInstallerSource: 'choco'
+    GitVersionInstallerVersion: '5.0.1'
+    doUseLatestGitVersionInstallerVersion: false

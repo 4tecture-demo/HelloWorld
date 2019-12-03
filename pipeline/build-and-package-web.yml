@@ -1,0 +1,25 @@
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET Core SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '2.2.109'
+- task: DotNetCoreCLI@2
+  displayName: 'Build in Configuration $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests'
+  inputs:
+    command: test
+    projects: $(unitTestProjects)
+    arguments: '--configuration $(buildConfiguration)  --collect "Code coverage"'
+- task: DotNetCoreCLI@2
+  displayName: 'Publish web application'
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
