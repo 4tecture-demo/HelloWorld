@@ -1,4 +1,4 @@
-name: 04_HelloWorld
+name: HelloWorld_CI
 trigger:
 - master
 variables:
