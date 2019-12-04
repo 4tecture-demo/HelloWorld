@@ -1,7 +1,7 @@
 name: HelloWorld_CD
 trigger: none
 variables:
-  azureSubscription: 'Microsoft Azure Sponsorship (82d445a5-0bf3-454a-804b-2fd0286650c2)'
+  azureSubscription: 'Microsoft Azure Sponsorship(82d445a5-0bf3-454a-804b-2fd0286650c2)'
   artifactName: 'HelloWorldWeb'
 resources:
  pipelines:
@@ -30,7 +30,7 @@ stages:
          - task: AzureWebApp@1
            displayName: 'Deploy to azure web app staging'
            inputs:
-             azureSubscription: 'Microsoft Azure Sponsorship (82d445a5-0bf3-454a-804b-2fd0286650c2)'
+             azureSubscription: '$(azureSubscription)'
              appType: 'webApp'
              appName: 'helloworldweb-staging'
              package: '$(Pipeline.Workspace)/**/HelloWorldWeb.zip'
@@ -54,7 +54,7 @@ stages:
          - task: AzureWebApp@1
            displayName: 'Deploy to azure web app prod'
            inputs:
-             azureSubscription: 'Microsoft Azure Sponsorship (82d445a5-0bf3-454a-804b-2fd0286650c2)'
+             azureSubscription: '$(azureSubscription)'
              appType: 'webApp'
              appName: 'helloworldweb-prod'
              package: '$(Pipeline.Workspace)/**/HelloWorldWeb.zip'
