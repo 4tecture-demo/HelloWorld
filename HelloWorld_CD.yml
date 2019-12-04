@@ -1,5 +1,6 @@
 name: HelloWorld_CD
 trigger: none
+pr: none
 variables:
   azureSubscription: 'Microsoft Azure Sponsorship(82d445a5-0bf3-454a-804b-2fd0286650c2)'
   artifactName: 'HelloWorldWeb'
